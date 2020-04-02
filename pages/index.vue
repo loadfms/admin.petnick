@@ -5,12 +5,16 @@
         Petnick
       </h1>
       <div class="home__box">
-        <Textbox label="email" placeholder="digite o seu email" :input-data.sync="email" />
-        <Password label="senha" placeholder="digite a sua senha" :input-data.sync="password" />
+        <div class="petnick__textbox">
+          <label>email</label>
+          <input v-model="email" type="text" placeholder="digite o seu email">
+        </div>
+        <div class="petnick__textbox">
+          <label>senha</label>
+          <input v-model="password" type="password" placeholder="digite a sua senha">
+        </div>
         <Button text="Entrar" @clicked="handleAuthenticate" />
-        <span>{{ this.$store.state.authenticate.loggedIn }}</span>
-        <span>{{ this.$store.state.authenticate.message }}</span>
-        <span>{{ this.$store.state.authenticate.data }}</span>
+        <span v-if="!this.$store.state.authenticate.loggedIn" class="home__box-alert">{{ this.$store.state.authenticate.message }}</span>
       </div>
     </div>
   </div>
@@ -20,15 +24,11 @@
 </style>
 
 <script>
-import Textbox from '~/components/Textbox/'
 import Button from '~/components/Button/'
-import Password from '~/components/Password/'
 
 export default {
   components: {
-    Textbox,
-    Button,
-    Password
+    Button
   },
   data () {
     return {
@@ -37,8 +37,15 @@ export default {
     }
   },
   methods: {
-    handleAuthenticate () {
-      this.$store.dispatch('authenticate/fetchAuthentication', { email: this.email, password: this.password })
+    async handleAuthenticate () {
+      await this.$store.dispatch('authenticate/fetchAuthentication', {
+        email: this.email,
+        password: this.password
+      })
+
+      if (this.$store.state.authenticate.loggedIn) {
+        this.$router.replace({ path: 'login' })
+      }
     }
   }
 }

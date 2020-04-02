@@ -1,8 +1,36 @@
 @import '../skeleton/normalize.css';
 @import '../skeleton/skeleton.css';
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;700&display=swap');
+@import 'colors';
 
-body {
+html, body {
     font-family: 'Baloo Thambi 2', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
+}
+
+.petnick {
+    &__textbox, &__passwordbox{
+        margin-bottom: 25px;
+
+        label{
+            text-align: left;
+            font-weight: normal;
+            margin: 0;
+            display: block;
+        }
+
+        input{
+            margin: 0;
+            padding: 0;
+            border:0;
+            border-bottom: 1px solid $purple1;
+            background-color: transparent ;
+            border-radius: 0;
+            font-size: 1.3rem;
+        }
+
+        &:focus{
+            outline-width: 0;
+        }
+    }
 }
