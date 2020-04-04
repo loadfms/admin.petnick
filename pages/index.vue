@@ -44,7 +44,7 @@ export default {
       })
 
       if (this.$store.state.authenticate.loggedIn) {
-        this.$router.replace({ path: 'login' })
+        this.$router.replace({ path: 'dashboard' })
       }
     }
   }

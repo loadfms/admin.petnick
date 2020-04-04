@@ -1,0 +1,65 @@
+@import '~@/assets/styles/main/_colors.scss';
+
+.menu{
+    background-color:$purple1;
+    height: 100vh;
+    width: 250px;
+
+    &__logo{
+      background: url(~@/assets/img/logo.svg) center center no-repeat;
+      display: block;
+      height: 120px;
+      text-indent: 99999999px;
+      background-size: contain;
+      margin: 0 20px;
+    }
+    &__ul{
+        padding: 0;
+    }
+    &__li, &__li-nomargin{
+        list-style: none;
+        margin-bottom: 15px;
+        margin-left: 25%;
+        &__link{
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            &-dash{
+                &::before{
+                    margin-right: 2px;
+                    content: url(~@/assets/img/icon_dash.svg);
+                }
+            }
+            &-schedule{
+                &::before{
+                    margin-right: 2px;
+                    content: url(~@/assets/img/icon_schedule.svg);
+                }
+            }
+            &-customer{
+                &::before{
+                    margin-right: 2px;
+                    content: url(~@/assets/img/icon_customer.svg);
+                }
+            }
+            &-settings{
+                &::before{
+                    margin-right: 2px;
+                    content: url(~@/assets/img/icon_settings.svg);
+                }
+            }
+            &-noicon{
+                margin-left: 50px;
+            }
+        }
+        &-nomargin{
+            margin: 0 0 15px 10%;
+        }
+    }
+    &__settings{
+        background-color: rgba($color: white, $alpha: 0.1);
+        padding: 10px 0;
+        border-radius: 20px 0 0px 20px;
+        margin-left: 15%;
+    }
+}

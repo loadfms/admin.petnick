@@ -1,0 +1,12 @@
+@import '~@/assets/styles/main/_colors.scss';
+
+body{
+    background-color: white;
+}
+
+.internal{
+    display: flex;
+    &__content{
+        width: 85%;
+    }
+}
