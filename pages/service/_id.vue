@@ -4,7 +4,7 @@
     <div class="internal__content">
       <div class="internal__content__header">
         <h1 class="internal__content__header-title">
-          Dashboard
+          Novo Servico
         </h1>
       </div>
     </div>

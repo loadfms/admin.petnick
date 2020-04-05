@@ -13,7 +13,9 @@
           <label>senha</label>
           <input v-model="password" type="password" placeholder="digite a sua senha">
         </div>
-        <Button text="Entrar" @clicked="handleAuthenticate" />
+        <a class="petnick__button" @click="handleAuthenticate">
+          Entrar
+        </a>
         <span v-if="!this.$store.state.authenticate.loggedIn" class="home__box-alert">{{ this.$store.state.authenticate.message }}</span>
       </div>
     </div>
@@ -24,12 +26,8 @@
 </style>
 
 <script>
-import Button from '~/components/Button/'
 
 export default {
-  components: {
-    Button
-  },
   data () {
     return {
       email: '',

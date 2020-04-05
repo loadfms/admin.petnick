@@ -6,6 +6,7 @@ html, body {
     font-family: 'Baloo Thambi 2', sans-serif;
     font-size: 12px;
     margin:0;
+    color: $black1;
 }
 
 .petnick {
@@ -33,4 +34,72 @@ html, body {
             outline-width: 0;
         }
     }
+    &__find{
+        input{
+            margin: 0;
+            padding: 0;
+            border:0;
+            background-color: transparent ;
+            border-radius: 0;
+            font-size: 1.2rem;
+            &::placeholder{
+                color: $gray1;
+            }
+        }
+        label{
+            text-align: left;
+            font-weight: normal;
+            margin: 0;
+            display: inline-block;
+            margin-right: 2px;
+            content: url(~@/assets/img/icon_find.svg);
+        }
+    }
+    &__button{
+        background-color:$purple2;
+        border: 0;
+        font-size: 1rem;
+        color: white;
+        border-radius: 50px;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        text-transform: initial;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+    
+        &:hover{
+            color: white;
+        }
+    }
+}
+
+.internal{
+    display: flex;
+    &__content{
+        padding: 0 20px;
+        width: 100%;
+        &__header{
+            display: flex;
+
+            &-title{
+                line-height: 120px;
+                font-size: 3rem;
+                font-weight: normal;
+                margin: 0;
+            }
+            &-find{
+                margin-left: auto;
+                line-height: 120px;
+            }
+            &-button{
+                align-self: center;
+            }
+             
+        }
+
+    }
+
+
 }
