@@ -1,0 +1,26 @@
+@import '~@/assets/styles/main/_colors.scss';
+
+.table-data{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+
+    tr{
+&:nth-child(even) {background-color: $gray3}
+        th{
+            text-align: left;
+            background-color: $gray2;
+            padding: 10px 5px;
+            color:$gray1;
+            font-weight: normal;
+            font-size: 1.2rem;
+        }
+        td{
+            padding: 10px 5px;
+            color:$gray1;
+        }
+    }
+
+    
+}

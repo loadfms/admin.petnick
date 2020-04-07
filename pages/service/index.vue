@@ -8,11 +8,17 @@
         </h1>
         <div class="internal__content__header-find petnick__find">
           <label />
-          <input v-model="email" type="text" placeholder="Busca de clientes">
+          <input type="text" placeholder="Busca de clientes">
         </div>
-        <nuxt-link class="internal__content__header-button petnick__button" to="service/0">
+        <nuxt-link
+          class="internal__content__header-button petnick__button"
+          to="service/0"
+        >
           Novo Servico
         </nuxt-link>
+      </div>
+      <div class="internal__content__page">
+        <Table :content="this.$store.state.tasks.data" object="tasks" />
       </div>
     </div>
   </div>
@@ -23,10 +29,20 @@
 
 <script>
 import Menu from '~/components/Menu/'
+import Table from '~/components/Table/'
 
 export default {
   components: {
-    Menu
+    Menu,
+    Table
+  },
+  created () {
+    this.handleAuthenticate()
+  },
+  methods: {
+    async handleAuthenticate () {
+      await this.$store.dispatch('tasks/fetchTasks')
+    }
   }
 }
 </script>

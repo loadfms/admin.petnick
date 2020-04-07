@@ -2,5 +2,9 @@
     "base_url": "http://localhost:5000/",
     "auth": {
         "default_route": "auth"
+    },
+    "tasks": {
+        "default_route": "task"
     }
+
 }

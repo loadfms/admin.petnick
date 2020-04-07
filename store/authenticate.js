@@ -1,18 +1,20 @@
 const config = require('./../config.json')
 
 export const state = () => ({
-  loggedIn: ''
+  loggedIn: '',
+  token: '',
+  message: ''
 })
 
 export const mutations = {
   ALLOW (state, response) {
     state.loggedIn = true
-    state.data = response.response.token
+    state.token = response.response.token
     state.message = ''
   },
   DENY (state, error) {
     state.loggedIn = false
-    state.data = {}
+    state.token = {}
     state.message = 'Email ou senha invalidos'
   }
 }

@@ -11,7 +11,7 @@
         </div>
         <div class="petnick__textbox">
           <label>senha</label>
-          <input v-model="password" type="password" placeholder="digite a sua senha">
+          <input v-model="password" type="password" placeholder="digite a sua senha" @keyup.enter="handleAuthenticate">
         </div>
         <a class="petnick__button" @click="handleAuthenticate">
           Entrar
