@@ -1,6 +1,6 @@
 # admin.petnick
 
-> Petnick admin page
+> Petnick admin page 
 
 ## Build Setup
 
