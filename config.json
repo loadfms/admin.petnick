@@ -1,5 +1,5 @@
 {
-    "base_url": "api.petnick.com.br/",
+    "base_url": "http://api.petnick.com.br/",
     "auth": {
         "default_route": "auth"
     },
