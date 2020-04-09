@@ -7,7 +7,7 @@
       </th>
     </tr>
 
-    <tr v-for="(item, index) in content[object]" :key="index">
+    <tr v-for="(item, index) in content[object]" :key="index" @click="goToDetail(item)">
       <td v-for="(key, z) in Object.keys(content[object][index])" :key="z">
         {{ item[key] }}
       </td>
@@ -25,8 +25,8 @@ export default {
     object: { type: String, default: '' }
   },
   methods: {
-    Log (message) {
-      console.log(message)
+    goToDetail (e) {
+      this.$router.push({ path: `${this.$router.currentRoute.path}/${e.Id}` })
     }
   }
 }

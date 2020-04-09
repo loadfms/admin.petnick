@@ -7,6 +7,22 @@
           Novo Servico
         </h1>
       </div>
+
+      <div class="internal__content__page">
+        <div class="petnick__boxes">
+          <Box title="Servico" icon="scissor">
+            <div class="petnick__textbox">
+              <label>nome</label>
+              <input v-model="nome" type="text" placeholder="digite o nome do servico">
+            </div>
+          </Box>
+        </div>
+      </div>
+      <div class="internal__content__footer">
+        <a class="petnick__button">
+          Cadastrar
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -16,10 +32,17 @@
 
 <script>
 import Menu from '~/components/Menu/'
+import Box from '~/components/Box'
 
 export default {
   components: {
-    Menu
+    Menu,
+    Box
+  },
+  data () {
+    return {
+      servico: ''
+    }
   }
 }
 </script>
