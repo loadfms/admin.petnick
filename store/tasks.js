@@ -20,8 +20,7 @@ export const actions = {
   async fetchTasks ({ commit, rootState }) {
     const header = {
       headers: {
-        // 'x-access-token': rootState.authenticate.token
-        'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxvYWRmbXNAZ21haWwuY29tIiwiaWQiOjMsImlhdCI6MTU4NjI4ODg3NSwiZXhwIjoxNTg2Mzc1Mjc1fQ.ekO3_t5FcGVQtbcIl24zTeCf5-NXju_lX9Mt7hZjrvE'
+        'x-access-token': rootState.authenticate.token
       }
     }
     const _commit = commit
