@@ -1,6 +1,6 @@
 
 <template>
-  <table v-if="content[object] !== undefined" class="table-data" CELLSPACING="0">
+  <table v-if="content[object] !== undefined && content[object].length > 0" class="table-data" CELLSPACING="0">
     <tr>
       <th v-for="(item, index) in Object.keys(content[object][0])" :key="index">
         {{ item }}

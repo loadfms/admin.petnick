@@ -5,6 +5,9 @@
     },
     "tasks": {
         "default_route": "task"
+    },
+    "employee": {
+        "default_route": "employee"
     }
 
 }
