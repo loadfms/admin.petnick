@@ -8,7 +8,7 @@
         </h1>
         <div class="internal__content__header-find petnick__find">
           <label />
-          <input type="text" placeholder="Busca de clientes">
+          <input v-model="find" type="text" placeholder="Buscar">
         </div>
         <nuxt-link
           class="internal__content__header-button petnick__button"
@@ -18,7 +18,7 @@
         </nuxt-link>
       </div>
       <div class="internal__content__page">
-        <Table :content="this.$store.state.tasks.data" object="tasks" />
+        <Table :content="this.$store.state.tasks.data" :filter="find" object="tasks" />
       </div>
     </div>
   </div>
@@ -36,11 +36,16 @@ export default {
     Menu,
     Table
   },
+  data () {
+    return {
+      find: ''
+    }
+  },
   created () {
-    this.handleAuthenticate()
+    this.handleGetTasks()
   },
   methods: {
-    async handleAuthenticate () {
+    async handleGetTasks () {
       await this.$store.dispatch('tasks/fetchTasks')
     }
   }

@@ -9,19 +9,20 @@
       </div>
 
       <div class="internal__content__page">
-        <div class="petnick__boxes">
-          <Box title="Servico" icon="scissor">
-            <div class="petnick__textbox">
-              <label>nome</label>
-              <input v-model="nome" type="text" placeholder="digite o nome do servico">
-            </div>
-          </Box>
-        </div>
-      </div>
-      <div class="internal__content__footer">
-        <a class="petnick__button">
-          Cadastrar
-        </a>
+        <form @submit="handleSave">
+          <div class="petnick__boxes">
+            <Box title="Servico" icon="scissor">
+              <div class="petnick__textbox">
+                <label>nome</label>
+                <input v-model="item.Nome" type="text" placeholder="digite o nome do servico" required>
+              </div>
+            </Box>
+          </div>
+          <div class="internal__content__footer">
+            <a class="petnick__button internal__content__footer-delete" @click="handleDelete">Excluir</a>
+            <input type="submit" class="petnick__button" value="Salvar">
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -41,7 +42,34 @@ export default {
   },
   data () {
     return {
-      servico: ''
+      id: this.$route.params.id,
+      item: { Nome: '' }
+    }
+  },
+  created () {
+    this.handleGetTask()
+  },
+  methods: {
+    async handleGetTask () {
+      await this.$store.dispatch('tasks/fetchSingleTask', { id: this.id })
+      this.item.Nome = this.$store.state.tasks.singledata.Nome
+    },
+    async handleSave (e) {
+      e.preventDefault()
+      if (this.id > 0) {
+        await this.$store.dispatch('tasks/updateTask', { id: this.id, name: this.item.Nome })
+        this.$router.push({ path: `/${this.$router.currentRoute.path.split('/')[1]}` })
+      } else {
+        await this.$store.dispatch('tasks/newTask', { name: this.item.Nome })
+        this.$router.push({ path: `/${this.$router.currentRoute.path.split('/')[1]}` })
+      }
+    },
+    async handleDelete (e) {
+      e.preventDefault()
+      if (this.id > 0) {
+        await this.$store.dispatch('tasks/deleteTask', { id: this.id })
+        this.$router.push({ path: `/${this.$router.currentRoute.path.split('/')[1]}` })
+      }
     }
   }
 }

@@ -137,6 +137,9 @@ html, body {
         &__footer{
             display: flex;
             margin-top: 20px;
+            &-delete{
+                margin-right: 20px;
+            }
         }
     }
 }
