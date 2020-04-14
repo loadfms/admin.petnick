@@ -4,7 +4,7 @@
     <div class="internal__content">
       <div class="internal__content__header">
         <h1 class="internal__content__header-title">
-          Servico
+          Usuario
         </h1>
         <div class="internal__content__header-find petnick__find">
           <label />
@@ -12,13 +12,13 @@
         </div>
         <nuxt-link
           class="internal__content__header-button petnick__button"
-          to="service/0"
+          to="user/0"
         >
-          Novo Servico
+          Novo Usuario
         </nuxt-link>
       </div>
       <div class="internal__content__page">
-        <Table :content="this.$store.state.tasks.data" :filter="find" filterfield="Nome" object="tasks" />
+        <Table :content="this.$store.state.users.data" :filter="find" filterfield="Email" object="users" />
       </div>
     </div>
   </div>
@@ -42,11 +42,11 @@ export default {
     }
   },
   created () {
-    this.handleGetTasks()
+    this.handleGetUsers()
   },
   methods: {
-    async handleGetTasks () {
-      await this.$store.dispatch('tasks/fetchTasks')
+    async handleGetUsers () {
+      await this.$store.dispatch('users/fetchUsers')
     }
   }
 }

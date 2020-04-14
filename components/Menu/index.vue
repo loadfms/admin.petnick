@@ -37,7 +37,7 @@
           </nuxt-link>
         </li>
         <li class="menu__li-nomargin">
-          <nuxt-link class="menu__li__link menu__li__link-noicon" to="/dashboard">
+          <nuxt-link class="menu__li__link menu__li__link-noicon" to="/user">
             Usuarios
           </nuxt-link>
         </li>

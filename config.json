@@ -8,6 +8,9 @@
     },
     "employee": {
         "default_route": "employee"
+    },
+    "users": {
+        "default_route": "user"
     }
 
 }

@@ -7,7 +7,7 @@
       </th>
     </tr>
 
-    <tr v-for="(item, index) in content[object].filter((e)=>{return e.Nome.toLowerCase().includes(filter.toLowerCase())})" :key="index" @click="goToDetail(item)">
+    <tr v-for="(item, index) in content[object].filter((e)=>{return e[filterfield].toLowerCase().includes(filter.toLowerCase())})" :key="index" @click="goToDetail(item)">
       <td v-for="(key, z) in Object.keys(content[object][index])" :key="z">
         {{ item[key] }}
       </td>
@@ -23,7 +23,8 @@ export default {
   props: {
     content: { type: Object, default: () => { } },
     filter: { type: String, default: '' },
-    object: { type: String, default: '' }
+    object: { type: String, default: '' },
+    filterfield: { type: String, default: '' }
   },
   methods: {
     goToDetail (e) {

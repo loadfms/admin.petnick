@@ -18,7 +18,7 @@
         </nuxt-link>
       </div>
       <div class="internal__content__page">
-        <Table :content="this.$store.state.employees.data" :filter="find" object="employees" />
+        <Table :content="this.$store.state.employees.data" :filter="find" filterfield="Nome" object="employees" />
       </div>
     </div>
   </div>
