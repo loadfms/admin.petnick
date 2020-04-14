@@ -17,6 +17,16 @@
                 <input v-model="item.Nome" type="text" placeholder="digite o nome do Funcionario" required>
               </div>
             </Box>
+            <Box title="Servicos" icon="scissor">
+              <div class="petnick__checkboxlist">
+                <ul>
+                  <li v-for="task in this.$store.state.tasks.data.tasks" :key="task.id">
+                    <input :id="task.Id" v-model="selectedTasks" type="checkbox" :value="task.Id">
+                    <label :for="task.Id">{{ task.Nome }}</label>
+                  </li>
+                </ul>
+              </div>
+            </Box>
           </div>
           <div class="internal__content__footer">
             <a class="petnick__button internal__content__footer-delete" @click="handleDelete">Excluir</a>
@@ -43,13 +53,19 @@ export default {
   data () {
     return {
       id: this.$route.params.id,
-      item: { Nome: '' }
+      item: { Nome: '' },
+      selectedTasks: []
     }
   },
   created () {
     this.handleGetEmployee()
+    this.handleGetTasks()
   },
   methods: {
+    async handleGetTasks () {
+      await this.$store.dispatch('tasks/fetchTasks')
+      console.log(this.$store.state.tasks.data)
+    },
     async handleGetEmployee () {
       await this.$store.dispatch('employees/fetchSingleEmployee', { id: this.id })
       this.item.Nome = this.$store.state.employees.singledata.Nome
