@@ -11,6 +11,9 @@
     },
     "users": {
         "default_route": "user"
+    },
+    "taskemployee": {
+        "default_route": "task-employee"
     }
 
 }

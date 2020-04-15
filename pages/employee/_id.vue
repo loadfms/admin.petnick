@@ -60,11 +60,19 @@ export default {
   created () {
     this.handleGetEmployee()
     this.handleGetTasks()
+    this.handleGetTaskEmployee()
   },
   methods: {
     async handleGetTasks () {
       await this.$store.dispatch('tasks/fetchTasks')
-      console.log(this.$store.state.tasks.data)
+    },
+    async handleGetTaskEmployee () {
+      await this.$store.dispatch('taskemployee/fetchTaskEmployees', { employeeId: this.id })
+      this.selectedTasks = []
+
+      this.$store.state.taskemployee.data.taskemployee.forEach((element) => {
+        this.selectedTasks.push(element.taskId)
+      })
     },
     async handleGetEmployee () {
       await this.$store.dispatch('employees/fetchSingleEmployee', { id: this.id })
@@ -72,7 +80,20 @@ export default {
     },
     async handleSave (e) {
       e.preventDefault()
+
+      const selectedTasks = []
+
+      this.selectedTasks.forEach((element) => {
+        selectedTasks.push({
+          employeeId: this.id,
+          taskId: element
+        })
+      })
+
       if (this.id > 0) {
+        await this.$store.dispatch('taskemployee/deleteTaskEmployee', this.id)
+        await this.$store.dispatch('taskemployee/newTaskEmployee', selectedTasks)
+
         await this.$store.dispatch('employees/updateEmployee', { id: this.id, name: this.item.Nome })
         this.$router.push({ path: `/${this.$router.currentRoute.path.split('/')[1]}` })
       } else {
